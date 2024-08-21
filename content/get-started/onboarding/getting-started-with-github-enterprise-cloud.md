@@ -10,8 +10,8 @@ This guide will walk you through setting up, configuring and managing your {% da
 
 {% data variables.product.prodname_dotcom %} provides two types of Enterprise products:
 
-- **{% data variables.product.prodname_ghe_cloud %}**
-- **{% data variables.product.prodname_ghe_server %}**
+* **{% data variables.product.prodname_ghe_cloud %}**
+* **{% data variables.product.prodname_ghe_server %}**
 
 The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %} is self-hosted.
 
@@ -27,7 +27,7 @@ To get started with {% data variables.product.prodname_ghe_cloud %}, decide whic
 
 ### 2. About enterprise accounts
 
-An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
+An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts)."
 
 ### 3. Creating an enterprise account
 
@@ -69,8 +69,8 @@ To audit access to enterprise-owned resources or user license usage, you can vie
 
 ## Part 3: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
-- [Managing security with {% data variables.product.prodname_emus  %}](#managing-security-with-enterprise-managed-users)
-- [Managing security without {% data variables.product.prodname_emus  %}](#managing-security-without-enterprise-managed-users)
+* [Managing security with {% data variables.product.prodname_emus  %}](#managing-security-with-enterprise-managed-users)
+* [Managing security without {% data variables.product.prodname_emus  %}](#managing-security-without-enterprise-managed-users)
 
 ### Managing security with {% data variables.product.prodname_emus  %}
 

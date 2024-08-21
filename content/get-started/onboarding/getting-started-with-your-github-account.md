@@ -52,7 +52,7 @@ The administrator of your {% data variables.product.product_name %} instance wil
 
 Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. We strongly urge you to configure 2FA for the safety of your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)."
 
-{% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}
+{% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}
 
 ### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% else %}2.{% endif %} Viewing your {% data variables.product.prodname_dotcom %} profile and contribution graph
 
@@ -191,7 +191,7 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 
 As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed.
 
-For more information on steps you can take to secure your repositories, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
+For more information on steps you can take to secure your repositories, see "[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository)."
 
 {% ifversion fpt or ghec %}
 
@@ -236,6 +236,6 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security)."
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-team)"
+* "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-team)"
 {% endif %}
 {% endif %}

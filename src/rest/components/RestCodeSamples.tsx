@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, Select, Tooltip, TabNav } from '@primer/react'
+import { FormControl, Select, TabNav } from '@primer/react'
+import { Tooltip } from '@primer/react/next'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
 import Cookies from 'src/frame/components/lib/cookies'
 import cx from 'classnames'
@@ -21,6 +22,7 @@ import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
 import { ResponseKeys, CodeSampleKeys } from './types'
 import { useVersion } from 'src/versions/components/useVersion'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 
 type Props = {
   slug: string
@@ -59,12 +61,15 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const firstRender = useRef(true)
   const scrollRef = useRef<HTMLDivElement>(null)
 
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
+
   // Get format examples for each language
   const languageExamples = operation.codeExamples.map((sample) => ({
     description: sample.request.description,
-    curl: getShellExample(operation, sample),
-    javascript: getJSExample(operation, sample),
-    ghcli: getGHExample(operation, sample),
+    curl: getShellExample(operation, sample, currentVersion, allVersions),
+    javascript: getJSExample(operation, sample, currentVersion, allVersions),
+    ghcli: getGHExample(operation, sample, currentVersion, allVersions),
     response: sample.response,
   }))
 
@@ -279,7 +284,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             <Tooltip
               className="mr-2"
               direction="w"
-              aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
+              text={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
             >
               <button
                 className="js-btn-copy btn-octicon"
@@ -306,10 +311,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
+          role="scrollbar"
+          aria-controls="example-request-code"
+          aria-valuenow={0}
         >
-          <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
+          <code id="example-request-code" ref={requestCodeExample}>
+            {displayedExample[selectedLanguage]}
+          </code>
         </div>
       </div>
 
@@ -364,10 +373,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}
-              // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
               tabIndex={0}
+              role="scrollbar"
+              aria-controls="example-response-code"
+              aria-valuenow={0}
             >
-              <code ref={responseCodeExample}>
+              <code id="example-response-code" ref={responseCodeExample}>
                 {selectedResponse === ResponseKeys.example
                   ? displayedExampleResponse
                   : displayedExampleSchema}
